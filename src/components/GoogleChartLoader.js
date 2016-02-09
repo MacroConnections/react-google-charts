@@ -20,7 +20,7 @@ var GoogleChartLoader = function(){
 		}
 		this.is_loading = true
 		script("https://www.gstatic.com/charts/loader.js", function() {
-			google.charts.load(version || 'current', {packages: packages || ['corechart']});
+			google.charts.load(version || 'current', {packages: packages || ['corechart', 'treemap']});
 			google.charts.setOnLoadCallback(function() {
 				self.is_loaded = true;
   				self.google_promise.resolve();
