@@ -34,6 +34,7 @@
     "karma-phantomjs-launcher": "^0.2.0",
     "mapbox": "^0.1.0",
     "phantomjs": "^1.9.17",
+    "react": "0.14.0-beta3",
     "reactify": "^1.1.1",
     "stringify": "^3.1.0",
     "underscore": "^1.8.3",
@@ -62,6 +63,6 @@
     "scriptjs": "^2.5.8"
   },
   "peerDependencies": {
-    "react": "^0.14"
+    "react": "0.14.0-beta3 || ^0.14"
   }
 }

@@ -20,7 +20,6 @@ var Chart = React.createClass({
 	},
 	componentDidMount: function(){
 		var self = this;
-
 		GoogleChartLoader.init(this.props.chartPackages, this.props.chartVersion).then(function(){
 			self.drawChart();
 		});
@@ -88,12 +87,18 @@ var Chart = React.createClass({
 
 	drawChart: function() {
 
-		if ((this.props.data !== null && this.props.data.length === 0) || this.props.columns.length === 0) {
+		if ((this.props.data !== null && this.props.data.length === 0)) {
 			return;
 		}
 
 		if (!this.wrapper) {
-			this.data_table = this.props.data !== null ? this.props.data : this.build_data_table();
+			this.data_table = this.props.data !== null ? google.visualization.arrayToDataTable(this.props.data) : this.build_data_table();
+
+			var formatter = new google.visualization.NumberFormat({ 
+			  fractionDigits: 2
+			});
+			formatter.format(this.data_table, 1);
+
 			this.wrapper = new google.visualization.ChartWrapper({
 				chartType: this.props.chartType,
 				dataTable: this.data_table,
